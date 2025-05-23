@@ -1,0 +1,22 @@
+services:
+  my-debts:
+    image: reg.arsalanse.ir/buy-track/my-debts:${TAG:-latest}
+    restart: unless-stopped
+    env_file: ".env"
+    environment:
+      - CONTAINER_ROLE=apache2
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.my-debts.entrypoints=http"
+      - "traefik.http.routers.my-debts.rule=Host(`my-debts.arsalanse.ir`)"
+      - "traefik.http.services.my-debts.loadbalancer.server.port=80"
+
+      - "traefik.http.middlewares.cors-headers.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.routers.my-debts.middlewares=cors-headers"
+
+networks:
+  web:
+    external: true
