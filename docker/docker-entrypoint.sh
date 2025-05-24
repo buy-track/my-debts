@@ -18,8 +18,6 @@ if [ "$CONTAINER_ROLE" == "apache2" ]; then
     php /var/www/html/artisan route:cache
     php /var/www/html/artisan view:cache
 
-    php /var/www/html/artisan passport:keys
-
     echo "Starting Apache2 service..."
     exec apache2-foreground
 
