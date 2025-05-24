@@ -9,7 +9,7 @@ chown -R www-data:www-data ./storage/logs
 
 if [ "$CONTAINER_ROLE" == "apache2" ]; then
     echo "Running Laravel migrations..."
-#    php /var/www/html/artisan migrate --force
+    php /var/www/html/artisan migrate --force
 
     echo "Clearing Laravel cache..."
     # php /var/www/html/artisan optimize:clear
