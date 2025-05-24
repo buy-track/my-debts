@@ -12,7 +12,7 @@ if [ "$CONTAINER_ROLE" == "apache2" ]; then
 #    php /var/www/html/artisan migrate --force
 
     echo "Clearing Laravel cache..."
-    php /var/www/html/artisan optimize:clear
+    # php /var/www/html/artisan optimize:clear
     php /var/www/html/artisan storage:link
     php /var/www/html/artisan config:cache
     php /var/www/html/artisan route:cache
