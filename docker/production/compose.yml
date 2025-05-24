@@ -7,6 +7,7 @@ services:
       - CONTAINER_ROLE=apache2
     networks:
       - web_net
+      - buytrack-modules
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web_net"
@@ -18,5 +19,6 @@ services:
       - "traefik.http.routers.my-debts.middlewares=cors-headers"
 
 networks:
+  buytrack-modules:
   web_net:
     external: true
