@@ -20,5 +20,6 @@ services:
 
 networks:
   buytrack-modules:
+    external: true
   web_net:
     external: true
