@@ -12,7 +12,8 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web_net"
       - "traefik.http.routers.my-debts.entrypoints=http"
-      - "traefik.http.routers.my-debts.rule=Host(`mydebts.milito.ir`)"
+      # - "traefik.http.routers.my-debts.rule=Host(`mydebts.milito.ir`)"
+      - "traefik.http.routers.my-debts.rule=Host(`mydebts.rootcloud.ir`)"
       - "traefik.http.services.my-debts.loadbalancer.server.port=80"
 
       - "traefik.http.middlewares.cors-headers.headers.accesscontrolalloworiginlist=*"
